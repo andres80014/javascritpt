@@ -11,10 +11,19 @@ function Seguro(marca,anio,tipo){
 function Interfaz() {
     //mensaje que ese imprimi en el HTML
     Interfaz.prototype.mostrarError = function (msj, tipoError) {
-        const div = document.createElement('<div>');
-        if(tipoError=='error'){
-            div.cl
+
+        const div = document.createElement('div');
+        if(tipoError == 'error'){
+            div.classList.add('error','mensaje');
+       }
+        else{
+            div.classList.add('correcto','mensaje');
         }
+        div.innerHTML=`${msj}`;
+        formulario.insertBefore(div,document.querySelector('.form-group'));
+        setTimeout(function(){
+            document.querySelector('.mensaje').remove();
+        },3000);
     }
 }
 
@@ -41,7 +50,6 @@ formulario.addEventListener('submit',function(e){
     }
     else{
         //instanciar seguro
-        console.log("Todo OK");
         const seguro = new Seguro(marcaSelecionada,anioSelecionado,tipo);
     }
 
