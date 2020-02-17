@@ -18,7 +18,10 @@ formulario.addEventListener('submit',(e)=>{
         ui.mostrarMensaje('Ambos campos son obligatorios','alert bg-danger text-center');
     }
     else{
-        console.log("conultar APO");
+        cotizador.obtenerValores(mondedaSelect,criptomonedaSelect)
+            .then(data=>{
+                ui.mostrarResultado(data.resultado.RAW,mondedaSelect,criptomonedaSelect);
+            });
     }
 
 });
