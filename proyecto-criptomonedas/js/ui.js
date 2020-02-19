@@ -62,7 +62,7 @@ class InterfazUi{
         setTimeout(()=>{
             document.querySelector('#resultado').innerHTML = templateHtml;
             this.mostrarOcularSpinner('none');
-            
+
         },3000);
 
     }
